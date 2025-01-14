@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen text-white font-formular">
+    <div className="min-h-screen text-white">
       <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm">
         <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Image
@@ -44,20 +44,20 @@ export default function Home() {
           >
             <Button
               variant="ghost"
-              className="text-white hover:text-[#6100ff] uppercase text-sm"
+              className="text-white hover:text-primary uppercase text-sm"
               onClick={() => scrollToSection(featuresRef)}
             >
               FEATURES
             </Button>
             <Button
               variant="ghost"
-              className="text-white hover:text-[#6100ff] uppercase text-sm"
+              className="text-white hover:text-primary uppercase text-sm"
               onClick={() => scrollToSection(docsRef)}
             >
               DOCS
             </Button>
             <Button
-              className="bg-[#6100ff] text-white hover:bg-[#6100ff]/80 uppercase text-sm px-6 glow-effect"
+              className="bg-primary text-white hover:bg-primary/80 uppercase text-sm px-6"
               onClick={openTerminal}
             >
               Launch App
@@ -106,7 +106,6 @@ function HeroSection({ openTerminal }) {
           <source src="https://videos.ctfassets.net/qqk6u6a33mqj/4lcGTeQNYGCElWZUwITLRG/7bdd395d72fbaf05e340bce3a65c842a/ill_home.mp4" type="video/mp4" />
         </video>
       </div>
-      {/* <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div> */}
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -119,16 +118,16 @@ function HeroSection({ openTerminal }) {
           </h1>
           <div className="flex items-center gap-4">
             <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white hexagon">
-              <span className="w-2 h-2 rounded-full bg-[#6100ff] inline-block mr-2" />
+              <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
               AI Powered
             </Badge>
             <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white hexagon">
-              <span className="w-2 h-2 rounded-full bg-[#6100ff] inline-block mr-2" />
+              <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
               Multi-Chain
             </Badge>
           </div>
           <Button 
-            className="bg-[#6100ff] text-white hover:bg-[#6100ff]/80 px-8 py-4 text-lg rounded-full"
+            className="bg-primary text-white hover:bg-primary/80 px-8 py-4 text-lg rounded-full"
             onClick={openTerminal}
           >
             Launch Terminal
@@ -186,10 +185,10 @@ function Features() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <Card 
-              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-[#6100ff] transition-colors futuristic-border clip-path-polygon"
+              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors clip-path-polygon"
             >
               <div className="p-6 space-y-4">
-                <div className="p-3 w-fit rounded-lg bg-[#6100ff]/20 text-[#6100ff]">
+                <div className="p-3 w-fit rounded-lg bg-primary/20 text-primary">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
@@ -266,7 +265,7 @@ function AdvancedFeatures() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <Card 
-              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-[#6100ff] transition-colors futuristic-border"
+              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors"
             >
               <div className="p-6 space-y-4">
                 <h3 className="text-2xl font-semibold text-white">{feature.title}</h3>
@@ -274,7 +273,7 @@ function AdvancedFeatures() {
                 <ul className="space-y-2">
                   {feature.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start gap-2 text-base text-white/70">
-                      <ArrowRight className="w-4 h-4 mt-1 text-[#6100ff]" />
+                      <ArrowRight className="w-4 h-4 mt-1 text-primary" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -297,7 +296,7 @@ function TerminalDemo() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Card className="bg-gray-900/60 backdrop-blur-md text-white border border-gray-800 futuristic-border">
+          <Card className="bg-gray-900/60 backdrop-blur-md text-white border border-gray-800">
             <div className="border-b border-gray-800 p-4 flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500" />
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -305,7 +304,7 @@ function TerminalDemo() {
             </div>
             <div className="p-6 font-mono text-sm space-y-4">
               <div className="flex items-center gap-2">
-                <span className="text-[#6100ff]">$</span>
+                <span className="text-primary">$</span>
                 <span className="typing-animation">astraeus analyze-contract 0x742d35Cc6634C0532925a3b844Bc454e4438f44e</span>
               </div>
               <div className="text-white/70 pl-6">
@@ -394,13 +393,13 @@ function Documentation() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <Card 
-              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-[#6100ff] transition-colors p-6 futuristic-border"
+              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors p-6"
             >
               <h3 className="text-xl text-white mb-4">{section.title}</h3>
               <div className="space-y-2">
                 {section.items.map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-white/70 hover:text-[#6100ff] cursor-pointer group">
-                    <ArrowRight className="w-4 h-4 text-[#6100ff] group-hover:translate-x-1 transition-transform" />
+                  <div key={item} className="flex items-center gap-2 text-white/70 hover:text-primary cursor-pointer group">
+                    <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                     <span className="text-base">{item}</span>
                   </div>
                 ))}
@@ -427,7 +426,7 @@ function CTA({ openTerminal }) {
         </p>
         <div className="mt-8">
           <Button 
-            className="bg-[#6100ff] text-white hover:bg-[#6100ff]/80 px-8 py-4 text-xl rounded-full"
+            className="bg-primary text-white hover:bg-primary/80 px-8 py-4 text-xl rounded-full"
             onClick={openTerminal}
           >
             Launch Terminal
