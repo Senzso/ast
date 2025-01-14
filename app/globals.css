@@ -29,6 +29,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  scale: 1.2;
 }
 
 @supports (backdrop-filter: blur(8px)) {
