@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end);
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.font-formular {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #6100ff, 0 0 10px #6100ff, 0 0 15px #6100ff, 0 0 20px #6100ff; }
+  100% { box-shadow: 0 0 10px #6100ff, 0 0 20px #6100ff, 0 0 30px #6100ff, 0 0 40px #6100ff; }
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.futuristic-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.futuristic-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #6100ff, #00ffff, #6100ff);
+  z-index: -1;
+  filter: blur(5px);
+  opacity: 0.7;
+}
+
+.clip-path-polygon {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+}
+
+.hexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
+.text-base {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-lg {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  .backdrop-blur-md {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+@supports not (backdrop-filter: blur(8px)) {
+  .backdrop-blur-md {
+    background-color: rgba(17, 24, 39, 0.8);
+  }
+}
+
