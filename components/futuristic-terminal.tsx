@@ -1,3 +1,5 @@
+'use client'
+
 import bs58 from 'bs58'
 
 declare global {
@@ -8,8 +10,6 @@ declare global {
     };
   }
 }
-
-'use client'
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
