@@ -121,7 +121,7 @@ function HeroSection({ openTerminal }) {
               <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
               AI Powered
             </Badge>
-            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white hexagon">
+            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white">
               <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
               Multi-Chain
             </Badge>
