@@ -117,7 +117,7 @@ function HeroSection({ openTerminal }) {
             Advanced blockchain operations<br />with AI-powered analysis
           </h1>
           <div className="flex items-center gap-4">
-            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white hexagon">
+            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white">
               <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
               AI Powered
             </Badge>
@@ -185,7 +185,7 @@ function Features() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <Card 
-              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors clip-path-polygon"
+              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors"
             >
               <div className="p-6 space-y-4">
                 <div className="p-3 w-fit rounded-lg bg-primary/20 text-primary">
