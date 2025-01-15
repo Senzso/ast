@@ -103,10 +103,13 @@ function HeroSection({ openTerminal }) {
           muted
           className="absolute w-full h-full object-cover"
         >
-          <source src="https://videos.ctfassets.net/qqk6u6a33mqj/4lcGTeQNYGCElWZUwITLRG/7bdd395d72fbaf05e340bce3a65c842a/ill_home.mp4" type="video/mp4" />
+          <source
+            src="https://videos.ctfassets.net/qqk6u6a33mqj/4lcGTeQNYGCElWZUwITLRG/7bdd395d72fbaf05e340bce3a65c842a/ill_home.mp4"
+            type="video/mp4"
+          />
         </video>
       </div>
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10 flex flex-col md:flex-row items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,26 +120,42 @@ function HeroSection({ openTerminal }) {
             Advanced blockchain operations<br />with AI-powered analysis
           </h1>
           <div className="flex items-center gap-4">
-            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white">
+            <Badge
+              variant="secondary"
+              className="px-4 py-1 bg-white/10 text-white"
+            >
               <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
               AI Powered
             </Badge>
-            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white">
+            <Badge
+              variant="secondary"
+              className="px-4 py-1 bg-white/10 text-white"
+            >
               <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
               Multi-Chain
             </Badge>
           </div>
-          <Button 
+          <Button
             className="bg-primary text-white hover:bg-primary/80 px-8 py-4 text-lg rounded-full"
             onClick={openTerminal}
           >
             Launch Terminal
           </Button>
         </motion.div>
+        <div className="mt-8 md:mt-0 md:ml-8">
+          <Image
+            src="/ai.png"
+            alt="AI Illustration"
+            width={400}
+            height={400}
+            className="rounded-lg shadow-lg"
+          />
+        </div>
       </div>
     </section>
-  )
+  );
 }
+
 
 function Features() {
   const features = [
