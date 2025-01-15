@@ -10,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-      <link rel="icon" type="image/png" href="https://i.postimg.cc/Y011M8sZ/icon.png" />
+      <link rel="icon" type="image/png" href="https://www.seda.xyz/png-sequence/031.png" />
       </head>
       <body>{children}</body>
     </html>
