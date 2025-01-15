@@ -66,30 +66,65 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="relative">
-        <HeroSection openTerminal={openTerminal} />
-        <div className="pt-32">
-          <div className="container mx-auto px-4 py-32 space-y-32 max-w-6xl">
-            <section ref={featuresRef}>
-              <Features />
-            </section>
-            <AdvancedFeatures />
-            <TerminalDemo />
-            <section ref={docsRef}>
-              <Documentation />
-            </section>
-          </div>
-          <CTA openTerminal={openTerminal} />
+function HeroSection({ openTerminal }) {
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="fixed inset-0 w-full h-full z-[-1]">
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute w-full h-full object-cover"
+        >
+          <source src="https://videos.ctfassets.net/qqk6u6a33mqj/4lcGTeQNYGCElWZUwITLRG/7bdd395d72fbaf05e340bce3a65c842a/ill_home.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+        <div className="flex items-center justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-[650px] space-y-8 pt-32"
+          >
+            <h1 className="text-6xl font-bold tracking-tight leading-none text-white">
+              Advanced blockchain operations<br />with AI-powered analysis
+            </h1>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 px-4 py-1.5 bg-[#0B0B0F] rounded-full">
+                <div className="w-2 h-2 rounded-full bg-[#6100ff]" />
+                <span className="text-sm">AI Powered</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-1.5 bg-[#0B0B0F] rounded-full">
+                <div className="w-2 h-2 rounded-full bg-[#6100ff]" />
+                <span className="text-sm">Multi-Chain</span>
+              </div>
+            </div>
+            <Button 
+              className="bg-primary text-white hover:bg-primary/80 px-8 py-4 text-lg rounded-full"
+              onClick={openTerminal}
+            >
+              Launch Terminal
+            </Button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-shrink-0 mt-8"
+          >
+            <Image
+              src="https://i.postimg.cc/0yc7kV8K/picture.png"
+              alt="AI Visualization"
+              width={400}
+              height={400}
+              className="object-contain"
+              priority
+            />
+          </motion.div>
         </div>
-      </main>
-      <FuturisticTerminal 
-        isOpen={isTerminalOpen} 
-        onClose={() => setIsTerminalOpen(false)} 
-        onOpen={() => setShouldSpeak(true)}
-        shouldSpeak={shouldSpeak}
-        setShouldSpeak={setShouldSpeak}
-      />
-    </div>
+      </div>
+    </section>
   )
 }
 
