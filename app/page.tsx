@@ -9,6 +9,18 @@ import { Wallet, Shield, BarChart2, Zap, ArrowRight } from 'lucide-react'
 import { FuturisticTerminal } from '@/components/futuristic-terminal'
 import { useToast } from '@/components/ui/use-toast'
 import Image from 'next/image'
+import { BundlerPreview } from '@/components/bundler-preview'
+import { VolumeBotPreview } from '@/components/volume-bot-preview'
+import { OnChainActionsPreview } from '@/components/onchain-actions-preview'
+import { PreviewModal } from '@/components/preview-modal'
+
+interface FuturisticTerminalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onOpen: () => void;
+  shouldSpeak: boolean;
+  setShouldSpeak: (value: boolean) => void;
+}
 
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false)
@@ -107,32 +119,49 @@ function HeroSection({ openTerminal }) {
         </video>
       </div>
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-[650px] space-y-8 pt-32"
-        >
-          <h1 className="text-6xl font-bold tracking-tight leading-none text-white">
-            Advanced blockchain operations<br />with AI-powered analysis
-          </h1>
-          <div className="flex items-center gap-4">
-            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white">
-              <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
-              AI Powered
-            </Badge>
-            <Badge variant="secondary" className="px-4 py-1 bg-white/10 text-white">
-              <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
-              Multi-Chain
-            </Badge>
-          </div>
-          <Button 
-            className="bg-primary text-white hover:bg-primary/80 px-8 py-4 text-lg rounded-full"
-            onClick={openTerminal}
+        <div className="flex items-center justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-[650px] space-y-8 pt-32"
           >
-            Launch Terminal
-          </Button>
-        </motion.div>
+            <h1 className="text-6xl font-bold tracking-tight leading-none text-white">
+              Advanced blockchain operations<br />with AI-powered analysis
+            </h1>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 px-4 py-1.5 bg-[#0B0B0F] rounded-full">
+                <div className="w-2 h-2 rounded-full bg-[#6100ff]" />
+                <span className="text-sm">AI Powered</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-1.5 bg-[#0B0B0F] rounded-full">
+                <div className="w-2 h-2 rounded-full bg-[#6100ff]" />
+                <span className="text-sm">Multi-Chain</span>
+              </div>
+            </div>
+            <Button 
+              className="bg-primary text-white hover:bg-primary/80 px-8 py-4 text-lg rounded-full"
+              onClick={openTerminal}
+            >
+              Launch Terminal
+            </Button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-shrink-0 mt-8"
+          >
+            <Image
+              src="https://i.postimg.cc/0yc7kV8K/picture.png"
+              alt="AI Visualization"
+              width={400}
+              height={400}
+              className="object-contain"
+              priority
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   )
@@ -184,17 +213,13 @@ function Features() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card 
-              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors"
-            >
-              <div className="p-6 space-y-4">
-                <div className="p-3 w-fit rounded-lg bg-primary/20 text-primary">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
-                <p className="text-base text-white/70">{feature.description}</p>
+            <div className="bg-[#0B0B0F] rounded-lg p-6 space-y-4">
+              <div className="p-3 w-fit rounded-lg bg-[#1A1A1F]">
+                {feature.icon}
               </div>
-            </Card>
+              <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+              <p className="text-base text-white/70">{feature.description}</p>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -264,22 +289,18 @@ function AdvancedFeatures() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card 
-              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors"
-            >
-              <div className="p-6 space-y-4">
-                <h3 className="text-2xl font-semibold text-white">{feature.title}</h3>
-                <p className="text-lg text-white/70">{feature.description}</p>
-                <ul className="space-y-2">
-                  {feature.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start gap-2 text-base text-white/70">
-                      <ArrowRight className="w-4 h-4 mt-1 text-primary" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Card>
+            <div className="bg-[#0B0B0F] rounded-lg p-6 space-y-4">
+              <h3 className="text-2xl font-semibold text-white">{feature.title}</h3>
+              <p className="text-lg text-white/70">{feature.description}</p>
+              <ul className="space-y-2">
+                {feature.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start gap-2 text-base text-white/70">
+                    <ArrowRight className="w-4 h-4 mt-1 text-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -296,7 +317,7 @@ function TerminalDemo() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Card className="bg-gray-900/60 backdrop-blur-md text-white border border-gray-800">
+          <div className="bg-[#0B0B0F] rounded-lg overflow-hidden">
             <div className="border-b border-gray-800 p-4 flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500" />
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -325,7 +346,7 @@ function TerminalDemo() {
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -392,9 +413,7 @@ function Documentation() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card 
-              className="bg-gray-900/60 backdrop-blur-md border-gray-800 hover:border-primary transition-colors p-6"
-            >
+            <div className="bg-[#0B0B0F] rounded-lg p-6">
               <h3 className="text-xl text-white mb-4">{section.title}</h3>
               <div className="space-y-2">
                 {section.items.map((item) => (
@@ -404,7 +423,7 @@ function Documentation() {
                   </div>
                 ))}
               </div>
-            </Card>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -435,5 +454,23 @@ function CTA({ openTerminal }) {
       </motion.div>
     </section>
   )
+}
+
+function FuturisticTerminal({ isOpen, onClose, onOpen, shouldSpeak, setShouldSpeak }: FuturisticTerminalProps) {
+  const [output, setOutput] = useState<string[]>([]);
+  const outputRef = useRef<HTMLDivElement>(null)
+
+  const handleSend = async (command: string) => {
+    try {
+      // ... rest of the function code
+    } catch (error: unknown) {
+      console.error('Error processing command:', error)
+      setOutput(prevOutput => [...prevOutput, `Error: ${error instanceof Error ? error.message : 'Unknown error'}`])
+    }
+  }
+  // ... rest of the component code
+  if (outputRef.current) {
+    outputRef.current.scrollTop = outputRef.current.scrollHeight
+  }
 }
 
