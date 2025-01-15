@@ -148,7 +148,7 @@ function HeroSection({ openTerminal }) {
             alt="AI Illustration"
             width={400}
             height={400}
-            className="rounded-lg shadow-lg"
+            className="rounded-lg shadow-lg  mt-4"
           />
         </div>
       </div>
