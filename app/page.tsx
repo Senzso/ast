@@ -30,7 +30,7 @@ export default function Home() {
       <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm">
         <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Image
-            src="https://i.postimg.cc/NGRmB4Cg/logo.png"
+            src="/logo.png"
             alt="Astraeus Logo"
             width={200}
             height={48}
