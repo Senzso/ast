@@ -2,6 +2,7 @@
 
 import bs58 from 'bs58'
 
+
 declare global {
   interface Window {
     solana?: {
