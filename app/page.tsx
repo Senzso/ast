@@ -132,7 +132,7 @@ function HeroSection({ openTerminal }) {
               className="px-4 py-1 bg-white/10 text-white"
             >
               <span className="w-2 h-2 rounded-full bg-primary inline-block mr-2" />
-              BQb5CyNLscCStM9tv7CmLpyTD6BnqAqAyeGjhsmLpump
+              Multi-Chain
             </Badge>
           </div>
           <Button
